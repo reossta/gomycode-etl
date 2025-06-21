@@ -1,5 +1,4 @@
 # GoMyCode – DataOps Internship
-Documentation
 
 → Pipeline Description and Purpose
 The pipeline processes subscription data to:
