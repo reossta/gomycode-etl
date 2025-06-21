@@ -1,5 +1,7 @@
 # GoMyCode – DataOps Internship
-1. Pipeline Description and Purpose
+Documentation
+
+→ Pipeline Description and Purpose
 The pipeline processes subscription data to:
 
 Clean and normalize date and percentage columns
@@ -7,7 +9,7 @@ Derive new fields such as SubscriptionMonth and estimated revenue
 Output a cleaned dataset (cleaned_output.csv) ready for OLAP analysis
 This helps analyze trends over time and understand revenue performance.
 
-2. Graph Schema Design (Neo4j)
+→ Graph Schema Design (Neo4j)
 We used Neo4j to model relationships between:
 
 Users (with or without a diploma)
@@ -20,7 +22,8 @@ Diploma-based comparisons
 Track popularity
 See: graph/neo4j_graph_schema.png
 
-3. Query Objectives (Cypher & SQL)
+→ Query Objectives (Cypher & SQL)
+
 Cypher queries:
 Top completed tracks
 Diploma vs non-diploma user analysis
@@ -30,10 +33,10 @@ Monthly cohort analysis
 Aggregated revenue by product type
 See: graph/cypher_queries.txt
 
-4. Key Design Choices and Assumptions
+→ Key Assumptions and Design Choices
+
 Used a default revenue of 100 when product schedule was missing
 Removed percentage signs from the progress field for numeric conversion
 Converted dates to monthly periods using to_period("M")
 Structured folders into data/, images/, graph/ for clarity
 Neo4j queries and schema were written but not run live
-
