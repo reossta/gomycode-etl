@@ -8,9 +8,9 @@
 python main.py
 ## 🔷 Neo4j Graph
 
-### Requêtes Cypher  
+
 Voir [cypher_queries.txt](graph/cypher_queries.txt)
 
-### Schéma du graphe  
+
 ![Graph Schema](graph/neo4j_graph_schema.png)
 
