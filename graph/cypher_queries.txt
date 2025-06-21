@@ -1,0 +1,39 @@
+PROFILE
+MATCH (st:students)-[:ATTENDED]->(:Session)
+WITH st, COUNT(*) AS nb
+ORDER BY nb DESC
+LIMIT 3
+RETURN st.name, nb;
+
+cypher MATCH (st:students) WHERE NOT (st)-[:ATTENDED]->() RETURN st.name AS student, st.student_id AS id;
+
+cypher MATCH (m:Module)<-[:TAUGHT_BY]-(ses:Session)<-[:ATTENDED]-(st:students) RETURN m.module AS module, COUNT(DISTINCT st) AS unique_learners ORDER BY unique_learners DESC;
+
+cypher MATCH (ses:Session)<-[:ATTENDED]-(st:students) RETURN ses.id AS session_id, DATE(ses.date) AS session_date, COUNT(st) AS student_count ORDER BY student_count DESC;
+
+cypher MATCH (st:students)-[:ATTENDED]->(:Session) WITH st, COUNT(*) AS nb_sessions ORDER BY nb_sessions DESC LIMIT 3 RETURN st.name AS student, st.student_id AS id, nb_sessions;
+
+MATCH (s:students)
+WHERE s.name = 'Emily'
+RETURN s.student_id;
+
+// puis utiliser cet ID
+MATCH (s:students {student_id:123})-[:ATTENDED]->(ses:Session)
+RETURN ses;
+
+MATCH (st:students {name:'Emily'})-[:ATTENDED]->(ses:Session)
+RETURN st.name      AS student,
+       ses.id       AS session_id,
+       ses.date     AS session_date
+ORDER BY ses.date;
+
+MATCH (s:students)
+RETURN DISTINCT s.name
+ORDER BY s.name
+LIMIT 20;
+
+MATCH (st:Student)-[:ATTENDED]->(s:Session) WITH st, count(s) AS nb ORDER BY nb DESC LIMIT 3 RETURN st.name AS student, nb;
+
+cypher MATCH (a:students {name:'Alice'})-[:ATTENDED]->(s:Session) RETURN a.name, s.id, s.date;
+
+MATCH (a:Student {name:'Alice'})-[:ATTENDED]->(s:Session) RETURN s.id, s.date ORDER BY s.date;
