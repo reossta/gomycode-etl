@@ -1,5 +1,5 @@
 # GoMyCode – DataOps Internship
-## Documentation
+
 
 ### What is your data pipeline doing and why?
 
